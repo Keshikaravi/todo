@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import CreateTask from "../modals/createTask";
 import Card from "./Card1";
+import Navbar from "./Navbar";
+import { Nav } from "reactstrap";
+import { Link } from "react-router-dom";
 
+const linkStyle = {
+  textDecoration: "none",
+  color: "white",
+};
 const TodoList = () => {
   const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([]);
@@ -41,12 +48,46 @@ const TodoList = () => {
   };
   return (
     <>
-      <div className="header text-center">
+      {/* <div className="header text-center">
         <h3>Todo List</h3>
         <button className="btn btn-primary" onClick={() => setModal(true)}>
           Create Task
         </button>
-      </div>
+      </div> */}
+      {/* <Navbar /> */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a className="navbar-brand" href="#">
+          Todo
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li>
+              <button
+                className="btn btn-primary"
+                onClick={() => setModal(true)}
+              >
+                Create Task
+              </button>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" style={linkStyle} to="/completed">
+                Completed
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <div className="task-container">
         {taskList &&
           taskList.map((obj, index) => (

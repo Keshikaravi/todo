@@ -12,7 +12,7 @@ const LoginForm = () => {
         <input type="text" placeholder="username" />
         <input type="password" placeholder="password" />
         {/* <button className="button">Login</button> */}
-        <div className="login-btn" onClick={() => navigate("TodoList")}>
+        <div className="login-btn" onClick={() => navigate("/todolist")}>
           Login
         </div>
         {/* <p className="text">Forgot password</p>
